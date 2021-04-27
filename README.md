@@ -19,6 +19,7 @@ This script requires the path to a geojson containing a polygon/multipolygon wit
 -e, --eps: (Optional, default=0.0001) Value of the amount of buffer to use around each point. The higher the eps, the less accurate the resulting shape is.
 
 Example usage:
+
     python3 ./polygon_utils/fill_multipolygon.py -i /path/to/input.json -o /path/to/output.json
 
 ### Symmetric Difference Multipolygon Usage
@@ -33,6 +34,7 @@ This script requires the path to two (multi)polygon geojsons, an outer (parent) 
 -e, --eps: (Optional, default=0.0001) Value of the amount of buffer to use around each point. The higher the eps, the less accurate the resulting shape is.
 
 Example usage:
+
     python3 ./polygon_utils/symmetric_difference_multipolygons.py -p /path/to/parent.json -c ../path/to/child.json -o /path/to/output.json
 
 ### Union Multipolygon Usage
@@ -45,6 +47,7 @@ This script takes in a semicolon-separated string of input geojsons. It first fi
 -e, --eps: (Optional, default=0.0001) Value of the amount of buffer to use around each point. The higher the eps, the less accurate the resulting shape is.
 
 Example usage:
+
     python3 ./polygon_utils/union_multipolygons.py -i '/path/to/input1.json;/path/to/input2.json;/path/to/input3.json' -o /path/to/output.json
 
 ### Lookup Point Usage
@@ -57,9 +60,11 @@ This script takes the path to a special lookup input file which is a dictionary 
 -y --y: The y-coordinate of the Point to lookup.
 
 Example usage:
+
     python3 ./polygon_utils/lookup_point.py -i /path/to/input.json -x 46.996439 -y -84.302183
 
 ## Point Lookup Input File
 The input file for the Lookup Point script is a specially formatted json where the keys are the names of the features and the values are the geojsons representing those features. An example entry in this file is:
+    
     {"FeatureA": {"type": "Feature", "geometry": {"type": "Polygon", "coordinates":[coords go here]}, "properties": {}}}
 A full example of a proper input file for this script can be found in the 'examples' directory.
